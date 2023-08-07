@@ -10,6 +10,8 @@ import Foundation
 import AppKit
 import Carbon
 
+let kVersion = "kVersion"
+
 struct InstallScript {
     /// 脚本所在的目录
     static var scriptPath: URL? {

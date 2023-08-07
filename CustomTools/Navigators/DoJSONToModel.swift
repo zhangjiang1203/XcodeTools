@@ -1,5 +1,5 @@
 //
-//  OpenDialog.swift
+//  DoJSONToModel.swift
 //  XcodeTools
 //
 //  Created by zhangjiang on 2023/7/28.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-class OpenDialog: Navigator {
+class DoJSONToModel: Navigator {
     var title: String {
-        return "open Dialog"
+        return "json to model"
     }
     
     func navigate() {
-        ScriptRunner.run("openDialog")
+        ScriptRunner.run("jsonToModelFunc")
     }
 }

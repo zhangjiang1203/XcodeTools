@@ -16,7 +16,7 @@
 		DF15AAC22A77E0AB00F456F1 /* CustomTools.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DF15AAB32A77E0AA00F456F1 /* CustomTools.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DF15AAD32A77E13800F456F1 /* DoPodInstall.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AAC82A77E13700F456F1 /* DoPodInstall.swift */; };
 		DF15AAD42A77E13800F456F1 /* DoPodUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AAC92A77E13700F456F1 /* DoPodUpdate.swift */; };
-		DF15AAD52A77E13800F456F1 /* OpenDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AACA2A77E13700F456F1 /* OpenDialog.swift */; };
+		DF15AAD52A77E13800F456F1 /* DoJSONToModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AACA2A77E13700F456F1 /* DoJSONToModel.swift */; };
 		DF15AAD62A77E13800F456F1 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AACB2A77E13700F456F1 /* Navigator.swift */; };
 		DF15AAD72A77E13800F456F1 /* ScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AACD2A77E13800F456F1 /* ScriptRunner.swift */; };
 		DF15AAD82A77E13800F456F1 /* InstallScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AACE2A77E13800F456F1 /* InstallScript.swift */; };
@@ -79,7 +79,7 @@
 		DF15AABF2A77E0AB00F456F1 /* CustomTools.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CustomTools.entitlements; sourceTree = "<group>"; };
 		DF15AAC82A77E13700F456F1 /* DoPodInstall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoPodInstall.swift; sourceTree = "<group>"; };
 		DF15AAC92A77E13700F456F1 /* DoPodUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoPodUpdate.swift; sourceTree = "<group>"; };
-		DF15AACA2A77E13700F456F1 /* OpenDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenDialog.swift; sourceTree = "<group>"; };
+		DF15AACA2A77E13700F456F1 /* DoJSONToModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoJSONToModel.swift; sourceTree = "<group>"; };
 		DF15AACB2A77E13700F456F1 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		DF15AACD2A77E13800F456F1 /* ScriptRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptRunner.swift; sourceTree = "<group>"; };
 		DF15AACE2A77E13800F456F1 /* InstallScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallScript.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 			children = (
 				DF15AAC82A77E13700F456F1 /* DoPodInstall.swift */,
 				DF15AAC92A77E13700F456F1 /* DoPodUpdate.swift */,
-				DF15AACA2A77E13700F456F1 /* OpenDialog.swift */,
+				DF15AACA2A77E13700F456F1 /* DoJSONToModel.swift */,
 				DF15AACB2A77E13700F456F1 /* Navigator.swift */,
 			);
 			path = Navigators;
@@ -318,7 +318,7 @@
 				DF15AABB2A77E0AB00F456F1 /* SourceEditorExtension.swift in Sources */,
 				DF15AABD2A77E0AB00F456F1 /* SourceEditorCommand.swift in Sources */,
 				DF15AAD92A77E13800F456F1 /* Helper.swift in Sources */,
-				DF15AAD52A77E13800F456F1 /* OpenDialog.swift in Sources */,
+				DF15AAD52A77E13800F456F1 /* DoJSONToModel.swift in Sources */,
 				DF15AAD62A77E13800F456F1 /* Navigator.swift in Sources */,
 				DF15AAD72A77E13800F456F1 /* ScriptRunner.swift in Sources */,
 			);

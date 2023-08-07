@@ -12,7 +12,7 @@ struct MenuManager {
     static let navigators: [Navigator] = [
         DoPodInstall(),
         DoPodUpdate(),
-        OpenDialog()
+        DoJSONToModel()
     ]
     
     static func find(_ commandIdentifier: String) -> Navigator? {
