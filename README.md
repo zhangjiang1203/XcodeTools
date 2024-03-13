@@ -17,19 +17,19 @@
 
 File -> New -> project -> macOS -App
 
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1691459862045.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image1.png" alt="image1" style="zoom:50%;" />
 
 #### 2.添加一个extension
 File --- New --- Target --- macOs --- Xcode Source Editor Extension
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1690771068913.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image2.png" alt="image2" style="zoom:50%;" align=center />
 
 当然也可以通过下面这种方式添加，同样是选择 Xcode Source Editor Extension
 
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1690771212851.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image3.png" alt="image3" style="zoom:50%;" align=center />
 
  执行之后生成的目录如下，之后在编译时选中要执行的XcodeTools
- 
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1690772119351.png"  align=center />&nbsp;&nbsp;&nbsp;
+
+<img src="./images/image4.png" alt="image4" style="zoom:50%;" align=center />
 
 
  上图中 系统会自动生成`SourceEditorExtension`和`SourceEditorCommand`两个文件，其中
@@ -42,7 +42,7 @@ File --- New --- Target --- macOs --- Xcode Source Editor Extension
 自定义菜单有以下两种方式，且方法二会覆盖方法一中定义的方法
 ##### 1.通过plist添加
 
-<img style="width:80%" src="https://ceph-dev-pub.dz11.com/fed-doc/1691411648901.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image5.png" alt="image5" style="zoom:50%;" align=center/>
 
 如上图定义方法 设置 className  identifier  name,其在`SourceEditorCommand`方法中会根据回调的identifier来调用方法。
 
@@ -74,14 +74,15 @@ func extensionDidFinishLaunching() {
 #### 4.extension的运行
 ##### 1.选中对应的extension进行运行
 
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1691412140376.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image6.png" alt="image6" style="zoom:50%;" align=center/>
+
 ##### 2.选中xcode运行该项目
 
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1691412149598.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image7.png" alt="image7" style="zoom:50%;" align=center/>
 
 运行时随便打开一个项目 可以发现在 editor 菜单下面 多了自定义菜单 
 
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1691412619835.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image8.png" alt="image8" style="zoom:50%;" align=center/>
 
 点击对应的菜单 执行相应的命令
 
@@ -89,11 +90,11 @@ func extensionDidFinishLaunching() {
 #### 5.打包使用
 提示 打包时必须使用证书，直接运行工程开始打包，选择 App development的方式将打的包导出到桌面上，单击程序开始运行，出现该提示(弹窗会出现多次 多点击几次😂😂😂，一定要保存文件，不然最后运行不了脚本)
 
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1691414018768.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image9.png" alt="image9" style="zoom:50%;" align=center/>
 
 在设置中进行配置 搜索扩展 对扩展进行勾选
 
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1691414125449.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image10.png" alt="image10" style="zoom:50%;" align=center/>
 
 
 这样在每个工程中都能使用我们定义的菜单了，而且为了方便操作  我们可以定义自己的快捷键，每次修改完podfile文件 直接快捷键操作 提升 开发效率，目前支持三个操作
@@ -101,27 +102,30 @@ func extensionDidFinishLaunching() {
 - pod update
 - dy yapi 参数传递 功能如下，执行时会打开终端并打开文件夹
 
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1691414311921.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image11.png" alt="image11" style="zoom:50%;" align=center/>
 
 - check denpency 更新类库组件依赖，动态修改podspec中的依赖库
 配置要检测的组件的路径地址
 
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1695103396314.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image12.png" alt="image12" style="zoom:50%;" align=center/>
 
 执行脚本成功 修改podspec文件
 
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1695103404773.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image13.png" alt="image13" style="zoom:50%;" align=center/>
 
 设置快捷键
 
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1691414696624.png"  align=center />&nbsp;&nbsp;&nbsp;
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1691414700682.png"  align=center />&nbsp;&nbsp;&nbsp;
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1691414704161.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image14.png" alt="image14" style="zoom:50%;" align=center/>
+
+<img src="./images/image15.png" alt="image15" style="zoom:50%;" align=center/>
+
+<img src="./images/image16.png" alt="image16" style="zoom:50%;" align=center/>&nbsp;&nbsp;&nbsp;
+
+
 
 设置完成之后 ，右边展示的是对应的快捷键
 
-
-<img style="width:60%" src="https://ceph-dev-pub.dz11.com/fed-doc/1709281348974.png"  align=center />&nbsp;&nbsp;&nbsp;
+<img src="./images/image17.png" alt="image17" style="zoom:50%;" align=center/>
 
 
 ##### 1. do pod install 
@@ -158,8 +162,6 @@ func extensionDidFinishLaunching() {
 如果有好的想法  可以做到xcode extension中进行
 
 #### 6.最后
-工程地址:[xcodeTool](https://g.dz11.com/voice-biz/client/ios/shells/XcodeTool)
-
 编译好的文件在附件中 下载放到应用程序中 双击打开保存对应的脚本即可(**不要修改路径 无脑保存即可**)
 
 #### 参考资料:
