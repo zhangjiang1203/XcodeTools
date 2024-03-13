@@ -10,7 +10,7 @@ import Foundation
 import AppKit
 import Carbon
 
-let kVersion = "kVersion"
+let kAppVersion = "kAppVersion"
 
 struct InstallScript {
     /// 脚本所在的目录
@@ -24,9 +24,17 @@ struct InstallScript {
     }
     
     static func fileScriptPath(_ fileName: String) -> URL? {
+        print("all data \(String(describing: Bundle.main.infoDictionary))")
+        //获取当前版本号，文件名用当前版本号做一个更新，每一个版本对应一个apple script文件
+        if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            return scriptPath?
+                .appendingPathComponent(fileName + "-" + appVersion)
+                .appendingPathExtension("scpt")
+        }
         return scriptPath?
             .appendingPathComponent(fileName)
             .appendingPathExtension("scpt")
+        
     }
     
     /// 写入文件
@@ -35,14 +43,14 @@ struct InstallScript {
         guard let filePath = fileScriptPath("XcodeToolScript") else {
             return
         }
-        
+        print("文件路径已存在:\(filePath)")
         //将文件 移动到 script 目录下
         if !FileManager.default.fileExists(atPath: filePath.path) {
             /// 要在主线程执行
             let panel = NSSavePanel()
             panel.title = "保存脚本文件"
             panel.message = "请保存AppleScript文件至Application Scripts目录才可使用"
-            panel.nameFieldStringValue = "XcodeToolScript.scpt"
+            panel.nameFieldStringValue = filePath.lastPathComponent
             panel.directoryURL = scriptPath
             panel.canCreateDirectories = false
             

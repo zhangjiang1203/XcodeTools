@@ -1,0 +1,372 @@
+use scripting additions
+use framework "Foundation"
+property NSString : a reference to current application's NSString
+
+-- Helper
+#移除最后一个文件路径
+on myRemoveLastPath(myPath)
+    set myString to NSString's stringWithString:myPath
+    set removedLastPathString to myString's stringByDeletingLastPathComponent
+    removedLastPathString as text
+end myRemoveLastPath
+
+#判断路径是文件或者文件夹
+on myFolderExists(myFolder) -- (String) as Boolean
+    tell application "System Events"
+        if exists folder myFolder then
+            return true
+        else
+            return false
+        end if
+    end tell
+end myFolderExists
+
+on myRemoveSubString(oldString, subString)
+    set myString to NSString's stringWithString:oldString
+    set newString to myString's stringByReplacingOccurrencesOfString:subString withString:""
+    newString as text
+end myRemoveSubString
+
+on myGetRemote(myText)
+    set myString to NSString's stringWithString:myText
+    set myParts to myString's componentsSeparatedByString:" "
+    set myFirstParts to item 1 of myParts
+    myFirstParts as text
+end myGetRemote
+
+# app是否安装
+on isExistsApp(appName)
+    set appPath to "/Applications/" & appName
+    tell application "System Events"
+        -- 检查/Applications 文件夹中是否存在该AppName
+        set appExists to (exists disk item appPath)
+    end tell
+end isExistsApp
+
+
+#执行终端命令
+#首选 iTerm
+#没有安装iTerm 再打开终端
+on openTerminalWithOrder(orders)
+    set appExists to isExistsApp("iTerm")
+    if appExists then
+        tell application "iTerm"
+            # 创建过窗口 直接打开 之前order 没有直接创建窗口
+            if (exists current window) then
+                activate
+                set newWindow to current window
+            else
+                try
+                    set newWindow to (create window with default profile)
+                on error
+                    tell current window
+                        create tab with default profile
+                    end tell
+                    set newWindow to current window
+                end try
+                
+            end if
+            tell newWindow
+                tell current session
+                    -- 循环执行命令
+                    repeat with order in orders
+                        write text order
+                    end repeat
+                end tell
+            end tell
+        end tell
+        
+    else
+        tell application "Terminal"
+            if not (exists window 1) then reopen
+            activate
+            repeat with order in orders
+                do script order in window 1
+            end repeat
+        end tell
+        
+    end if
+    
+end openTerminalWithOrder
+
+-- Path
+
+on myHomePath()
+    tell application "System Events"
+        "/Users/" & (name of current user)
+    end tell
+end myHomePath
+
+on myLibraryPath()
+    myHomePath() & "/Library"
+end myLibraryPath
+
+on myDesktopPath()
+    myHomePath() & "/Desktop"
+    
+end myDesktopPath
+
+on myXcodePath()
+    myLibraryPath() & "/Developer/Xcode"
+end myXcodePath
+
+on myCoreSimulator()
+    myLibraryPath() & "/Developer/CoreSimulator"
+end myCoreSimulator
+
+on myUserDataPath()
+    myXcodePath() & "/UserData"
+end myUserDataPath
+
+on myProjectPath()
+    tell application "Xcode"
+        tell active workspace document
+            set myPath to path
+        end tell
+    end tell
+    myRemoveLastPath(myPath)
+end myProjectPath
+
+on myCurrentFilePath()
+    tell application "Xcode"
+        set activeDocument to document 1 whose name ends with (word -1 of (get name of window 1))
+        path of activeDocument
+    end tell
+end myCurrentFilePath
+
+-- Generic Open
+
+on myOpenFolder(myPath)
+    tell application "Finder"
+        activate
+        open myPath as POSIX file
+    end tell
+end myOpenFolder
+
+-- Open
+
+on myOpenThemesFolder()
+    set myPath to myUserDataPath() & "/FontAndColorThemes/"
+    myOpenFolder(myPath)
+end myOpenThemesFolder
+
+on myOpenCodeSnippetsFolder()
+    set myPath to myUserDataPath() & "/CodeSnippets/"
+    myOpenFolder(myPath)
+end myOpenCodeSnippetsFolder
+
+on myOpenDeviceSupportFolder()
+    set myPath to "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport"
+    myOpenFolder(myPath)
+end myOpenDeviceSupportFolder
+
+on myOpenArchivesFolder()
+    set myPath to myXcodePath() & "/Archives/"
+    myOpenFolder(myPath)
+end myOpenArchivesFolder
+
+on myOpenProvisioningProfileFolder()
+    set myPath to myLibraryPath() & "/MobileDevice/Provisioning Profiles"
+    myOpenFolder(myPath)
+end myOpenProvisioningProfileFolder
+
+on myOpenProjectFolder()
+    set myPath to myProjectPath()
+    myOpenFolder(myPath)
+end myOpenProjectFolder
+
+on myOpenTermnalForCurrentProject()
+    set myPath to myProjectPath()
+    set order to ("cd " & myPath)
+    openTerminalWithOrder({order})
+    
+end myOpenTermnalForCurrentProject
+
+on myOpenDerivedDataFolder()
+    set myRelativePath to myProjectPath() & "/DerivedData/"
+    if myFolderExists(myRelativePath) then
+        myOpenFolder(myRelativePath)
+    else
+        myOpenFolder(myXcodePath() & "/DerivedData/")
+    end if
+end myOpenDerivedDataFolder
+
+
+on myOpenDocument()
+    set command1 to "cd ~/Library/Developer/CoreSimulator/Devices/;"
+    set command2 to "cd `ls -t | head -n 1`/data/Containers/Data/Application;"
+    set command3 to "cd `ls -t | head -n 1`/Documents;"
+    set command4 to "open ."
+    do shell script command1 & command2 & command3 & command4
+end myOpenDocument
+
+-- Clean
+
+on myCleanDerivedData()
+    set myRelativePath to myProjectPath() & "/DerivedData"
+    if myFolderExists(myRelativePath) then
+    else
+        set myRelativePath to myXcodePath() & "/DerivedData"
+    end if
+    do shell script "rm -rf " & myRelativePath
+end myCleanDerivedData
+
+
+
+-- Do 对外执行的方法
+
+on myPodInstall()
+    set myPath to myProjectPath()
+    set order to ("cd " & quoted form of myPath) as string
+    openTerminalWithOrder({order, "pod install"})
+end myPodInstall
+
+on myPodUpdate()
+    set myPath to myProjectPath()
+    set order to ("cd " & quoted form of myPath) as string
+    openTerminalWithOrder({order, "pod update"})
+    
+end myPodUpdate
+
+# json转模型 需要安装 yapi 插件
+on jsonToModelFunc()
+    
+    set fileName to ((path to desktop as text) & "AppIcon.icns")
+    set answer to the text returned of (display dialog "输入要解析模型的地址" default answer "" buttons {"确认", "取消"} default button 1 with icon note)
+    set urlLength to the length of answer
+    
+    if urlLength is greater than 0 then
+        -- 执行脚本 判断文件是否存在
+        set filePath to myDesktopPath() & "/JsonToModel"
+        if myFolderExists(filePath) then
+            -- 删除该目录下的所有文件
+            do shell script "find " & filePath & " -type f -delete"
+        else
+            do shell script "mkdir " & filePath
+            -- 执行脚本命令生成文件
+        end if
+        -- 执行脚本命令生成文件
+        set order1 to ("dy yapi --url=" & answer & " --top-name=YZQ --out-path=" & filePath)
+        set order2 to ("open " & filePath)
+        
+        openTerminalWithOrder({order1, order2})
+    end if
+end jsonToModelFunc
+
+
+# 检查项目之间的依赖设置
+on checkDenpencyFunc(pyPath)
+    
+    set answer to the text returned of (display dialog "输入要检查依赖的组件库文件夹" default answer "" buttons {"确认", "取消"} default button 1 with icon note)
+    set urlLength to the length of answer
+    
+    if urlLength is greater than 0 then
+        set order to ("python3 " & pyPath & " --filePath=" & answer)
+        
+        openTerminalWithOrder({order})
+        
+    end if
+    
+end checkDenpencyFunc
+
+
+on myOpenCurrentFileInFinder()
+    set myPath to myCurrentFilePath()
+    --set操作不能再 tell 中进行设置否者会出错 尤其是嵌套了两层tell 操作
+    set finderPath to myRemoveLastPath(myPath)
+    set filePath to POSIX file myPath
+    
+    tell application "System Events"
+        set theItem to disk item myPath
+        
+        if class of theItem is folder then
+            #这是一个文件夹 直接打开
+            tell application "Finder"
+                activate
+                open myPath as POSIX file
+            end tell
+        else if class of theItem is file then
+            
+            tell application "Finder"
+                
+                activate
+                open finderPath as POSIX file
+                
+                #选中指定文件
+                reveal filePath
+            end tell
+        else
+            display dialog "这是其他类型的项目"
+        end if
+        
+    end tell
+    
+end myOpenCurrentFileInFinder
+
+
+
+# git commit 操作
+on gitCommitFunc()
+    
+    set answer to the text returned of (display dialog "有未提交的内容 输入commit message" default answer "" buttons {"确认", "取消"} default button 1 with icon note)
+    set urlLength to the length of answer
+    
+    if urlLength is greater than 0 then
+        set myPath to myProjectPath()
+        set order1 to "cd " & quoted form of myPath
+        set order2 to "git add ."
+        set order3 to "git commit -m " & answer
+        
+        openTerminalWithOrder({order1, order2, order3})
+    end if
+    
+end gitCommitFunc
+
+
+# git status 判断是否有未提交内容
+on gitStatusFunc()
+    
+    set myPath to myProjectPath()
+    
+    set gitStatusCommand to "cd " & quoted form of myPath & " && git status"
+    
+    #获取执行的结果
+    try
+        set gitStatusOutput to do shell script gitStatusCommand
+        
+        set isCommit to gitStatusOutput contains "nothing to commit, working tree clean"
+        
+    on error errMsg
+        # 命令执行失败
+        display dialog "执行出错：" & errMsg buttons {"OK"} default button "OK"
+    end try
+    
+end gitStatusFunc
+
+# git pull 操作
+on gitPullFunc()
+    
+    if gitStatusFunc() then
+        set myPath to myProjectPath()
+        set order to "cd " & quoted form of myPath
+        openTerminalWithOrder({"git pull"})
+    else
+        gitCommitFunc()
+    end if
+    
+    
+end gitPullFunc
+
+# git push 操作
+on gitPushFunc()
+    
+    if gitStatusFunc() then
+        set myPath to myProjectPath()
+        set order to "cd " & quoted form of myPath
+        openTerminalWithOrder({"git push"})
+    else
+        
+        gitCommitFunc()
+    end if
+end gitPushFunc
+
