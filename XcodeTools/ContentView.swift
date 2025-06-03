@@ -9,10 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    init() {
-        AppleScriptAction.showInFinder()
-    }
-    
     var body: some View {
         
         NavigationSplitView {

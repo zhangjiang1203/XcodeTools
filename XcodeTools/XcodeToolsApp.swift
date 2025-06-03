@@ -11,6 +11,7 @@ import SwiftUI
 struct XcodeToolsApp: App {
     
     init() {
+        //启动注册通知
         _ = AppleScriptManager.default
     }
     

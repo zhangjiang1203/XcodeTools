@@ -28,15 +28,6 @@ class SourceEditorExtension: NSObject, XCSourceEditorExtension {
                 XCSourceEditorCommandDefinitionKey.identifierKey: Helper.namespaceIdentifier(item.rawValue)
             ]
         }
-        
-        
-//        return MenuManager.navigators.map { navigator in
-//            return[
-//                XCSourceEditorCommandDefinitionKey.nameKey: navigator.title,
-//                XCSourceEditorCommandDefinitionKey.classNameKey: SourceEditorCommand.className(),
-//                XCSourceEditorCommandDefinitionKey.identifierKey: Helper.namespaceIdentifier(navigator.title)
-//            ]
-//        }
     }
     
 }
