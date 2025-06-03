@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct DoPodInstall: Navigator {
     var title: String {
         return "do pod install"
@@ -14,7 +15,11 @@ struct DoPodInstall: Navigator {
     
     func navigate() {
         //执行脚本
-        ScriptRunner.run("myPodInstall")
+        CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),
+                                             ExtensionGlobalNotification.podInstallNoti.globalCFName,
+                                             nil,
+                                             nil,
+                                             true)
     }
 }
 

@@ -11,10 +11,13 @@ import XcodeKit
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
-        //执行脚本语言
-        if let navigator = MenuManager.find(invocation.commandIdentifier) {
-            DispatchQueue.main.async {
-                navigator.navigate()
+        debugPrint("开始执行22===\(invocation.commandIdentifier)")
+        let identifier = Helper.getIdentifier(invocation.commandIdentifier)
+        if !identifier.isEmpty, let item = ExtensionGlobalNotification(rawValue: identifier) {
+            //执行对应逻辑
+            debugPrint("开始执行11===\(item.rawValue)")
+            item.launchMainAppIfNeeded {
+                item.navigate()
             }
         }
         

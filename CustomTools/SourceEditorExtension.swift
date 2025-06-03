@@ -20,13 +20,23 @@ class SourceEditorExtension: NSObject, XCSourceEditorExtension {
         
     /// 执行的方法集合 也可以在 info.plist中定义
     var commandDefinitions: [[XCSourceEditorCommandDefinitionKey: Any]] {
-        return MenuManager.navigators.map { navigator in
+        
+        return ExtensionGlobalNotification.allCases.map { item in
             return[
-                XCSourceEditorCommandDefinitionKey.nameKey: navigator.title,
+                XCSourceEditorCommandDefinitionKey.nameKey: item.menuTitle,
                 XCSourceEditorCommandDefinitionKey.classNameKey: SourceEditorCommand.className(),
-                XCSourceEditorCommandDefinitionKey.identifierKey: Helper.namespaceIdentifier(navigator.title)
+                XCSourceEditorCommandDefinitionKey.identifierKey: Helper.namespaceIdentifier(item.rawValue)
             ]
         }
+        
+        
+//        return MenuManager.navigators.map { navigator in
+//            return[
+//                XCSourceEditorCommandDefinitionKey.nameKey: navigator.title,
+//                XCSourceEditorCommandDefinitionKey.classNameKey: SourceEditorCommand.className(),
+//                XCSourceEditorCommandDefinitionKey.identifierKey: Helper.namespaceIdentifier(navigator.title)
+//            ]
+//        }
     }
     
 }

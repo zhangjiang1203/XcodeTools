@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		C24BCE282B917D7E0030E55C /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BCE272B917D7E0030E55C /* SideBarView.swift */; };
 		C24BCE2A2B917D940030E55C /* DetailContentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BCE292B917D940030E55C /* DetailContentPage.swift */; };
+		C2A0F6C92DEEF7260055E328 /* AppleScriptAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6C82DEEF7260055E328 /* AppleScriptAction.swift */; };
+		C2A0F6CB2DEEF75C0055E328 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6CA2DEEF75C0055E328 /* String+Ex.swift */; };
+		C2A0F6D32DEEF8100055E328 /* AppleScriptNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6D22DEEF8100055E328 /* AppleScriptNotification.swift */; };
+		C2A0F6D52DEEF8E70055E328 /* AppleScriptNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6D22DEEF8100055E328 /* AppleScriptNotification.swift */; };
+		C2A0F6D72DEEFDB00055E328 /* AppleScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6D62DEEFDB00055E328 /* AppleScriptManager.swift */; };
+		C2B025AF2DEF1BBA0001A10A /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AACB2A77E13700F456F1 /* Navigator.swift */; };
 		DF15AAA12A77E08F00F456F1 /* XcodeToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AAA02A77E08F00F456F1 /* XcodeToolsApp.swift */; };
 		DF15AAA32A77E08F00F456F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AAA22A77E08F00F456F1 /* ContentView.swift */; };
 		DF15AAA52A77E09000F456F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF15AAA42A77E09000F456F1 /* Assets.xcassets */; };
@@ -68,6 +74,11 @@
 /* Begin PBXFileReference section */
 		C24BCE272B917D7E0030E55C /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		C24BCE292B917D940030E55C /* DetailContentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentPage.swift; sourceTree = "<group>"; };
+		C2A0F6C82DEEF7260055E328 /* AppleScriptAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptAction.swift; sourceTree = "<group>"; };
+		C2A0F6CA2DEEF75C0055E328 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
+		C2A0F6D22DEEF8100055E328 /* AppleScriptNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptNotification.swift; sourceTree = "<group>"; };
+		C2A0F6D62DEEFDB00055E328 /* AppleScriptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptManager.swift; sourceTree = "<group>"; };
+		C2EBAAC82DEF0EC000E016AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DF15AA9D2A77E08F00F456F1 /* XcodeTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF15AAA02A77E08F00F456F1 /* XcodeToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeToolsApp.swift; sourceTree = "<group>"; };
 		DF15AAA22A77E08F00F456F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +132,17 @@
 			path = ContentPageView;
 			sourceTree = "<group>";
 		};
+		C2A0F6C72DEEF7130055E328 /* ScriptTool */ = {
+			isa = PBXGroup;
+			children = (
+				C2A0F6CA2DEEF75C0055E328 /* String+Ex.swift */,
+				C2A0F6C82DEEF7260055E328 /* AppleScriptAction.swift */,
+				C2A0F6D22DEEF8100055E328 /* AppleScriptNotification.swift */,
+				C2A0F6D62DEEFDB00055E328 /* AppleScriptManager.swift */,
+			);
+			path = ScriptTool;
+			sourceTree = "<group>";
+		};
 		DF15AA942A77E08F00F456F1 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +165,8 @@
 		DF15AA9F2A77E08F00F456F1 /* XcodeTools */ = {
 			isa = PBXGroup;
 			children = (
+				C2EBAAC82DEF0EC000E016AF /* Info.plist */,
+				C2A0F6C72DEEF7130055E328 /* ScriptTool */,
 				C24BCE2C2B917DA70030E55C /* ContentPageView */,
 				DF15AAA02A77E08F00F456F1 /* XcodeToolsApp.swift */,
 				DF15AAA22A77E08F00F456F1 /* ContentView.swift */,
@@ -320,8 +344,13 @@
 			files = (
 				C24BCE282B917D7E0030E55C /* SideBarView.swift in Sources */,
 				C24BCE2A2B917D940030E55C /* DetailContentPage.swift in Sources */,
+				C2B025AF2DEF1BBA0001A10A /* Navigator.swift in Sources */,
 				DF15AAA32A77E08F00F456F1 /* ContentView.swift in Sources */,
+				C2A0F6CB2DEEF75C0055E328 /* String+Ex.swift in Sources */,
 				DF15AAA12A77E08F00F456F1 /* XcodeToolsApp.swift in Sources */,
+				C2A0F6D72DEEFDB00055E328 /* AppleScriptManager.swift in Sources */,
+				C2A0F6D32DEEF8100055E328 /* AppleScriptNotification.swift in Sources */,
+				C2A0F6C92DEEF7260055E328 /* AppleScriptAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +363,7 @@
 				DF15AAD82A77E13800F456F1 /* InstallScript.swift in Sources */,
 				DF15AABB2A77E0AB00F456F1 /* SourceEditorExtension.swift in Sources */,
 				DF15AABD2A77E0AB00F456F1 /* SourceEditorCommand.swift in Sources */,
+				C2A0F6D52DEEF8E70055E328 /* AppleScriptNotification.swift in Sources */,
 				DF15AAD92A77E13800F456F1 /* Helper.swift in Sources */,
 				DF15AAD62A77E13800F456F1 /* Navigator.swift in Sources */,
 				DF15AAD72A77E13800F456F1 /* ScriptRunner.swift in Sources */,
@@ -477,14 +507,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"XcodeTools/Preview Content\"";
 				DEVELOPMENT_TEAM = 2V9T7J797B;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = XcodeTools/Info.plist;
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "想要发送事件";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
 				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zj.XcodeTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -506,14 +540,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"XcodeTools/Preview Content\"";
 				DEVELOPMENT_TEAM = 2V9T7J797B;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = XcodeTools/Info.plist;
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "想要发送事件";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13;
 				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zj.XcodeTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -536,6 +574,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CustomTools/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CustomTools;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app requires access to control other apps using Apple Events.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -566,6 +605,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CustomTools/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CustomTools;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app requires access to control other apps using Apple Events.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

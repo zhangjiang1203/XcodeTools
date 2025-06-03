@@ -6,38 +6,64 @@
 //
 
 import Foundation
-#if os(macOS)
 import Cocoa
-#endif
 
 struct AppleScriptAction {
     @discardableResult
     static func executeAppleScript(_ script: String) -> String? {
-#if os(macOS)
         var error: NSDictionary?
         if let appleScript = NSAppleScript(source: script) {
             let output = appleScript.executeAndReturnError(&error)
             if let error = error {
+                debugPrint("脚本执行失败 error:\(error.description)")
                 return "脚本执行失败 error:\(error.description)"
             } else {
                 debugPrint("脚本执行信息=\(output.stringValue ?? "")")
                 return output.stringValue
             }
         }
-#endif
         return ""
     }
 }
 
 extension AppleScriptAction {
-    static func showInFinder(_ path: String){
-        let scriptPath = path.path()
+    static func showInFinder(){
+        //获取当前文件的路径信息
+        guard let currentFilePath = getCurrentFilePath(), let url = URL(string: currentFilePath) else {
+            //移除最后一个文件路径
+            return
+        }
+        
+        let filePath = url.path()
         let script = """
-            tell application "Finder"
-                open POSIX file "\(scriptPath)"
-                activate
+            set myPath to "\(filePath)"
+            set finderPath to myPath
+            set filePath to POSIX file myPath
+            
+            tell application "System Events"
+                set theItem to disk item myPath
+                
+                if class of theItem is folder then
+                    #这是一个文件夹 直接打开
+                    tell application "Finder"
+                        activate
+                        open myPath as POSIX file
+                    end tell
+                else if class of theItem is file then
+                    
+                    tell application "Finder"
+                        activate
+                        open finderPath as POSIX file
+                        #选中指定文件
+                        reveal filePath
+                        activate
+                    end tell
+                else
+                    display dialog "这是其他类型的项目"
+                end if
             end tell
         """
+        
         executeAppleScript(script)
     }
     
@@ -107,11 +133,9 @@ extension AppleScriptAction {
     
     /// 根据bundleId 判断是否安装某个App
     private static func isAppInstalled(bundleIdentifier: String) -> Bool {
-        #if os(macOS)
         if let _ = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleIdentifier){
             return true
         }
-        #endif
         return false
     }
     
@@ -131,7 +155,7 @@ extension AppleScriptAction {
     }
     
     /// 获取当前活跃的 Xcode 项目路径（上级目录）
-    private static func getXcodeProjectDirectory() -> String? {
+    static func getXcodeProjectDirectory() -> String? {
         let script = """
             tell application "Xcode"
                 try
@@ -147,6 +171,17 @@ extension AppleScriptAction {
             return url.deletingLastPathComponent().path()
         }
         return nil
+    }
+    
+    static func getCurrentFilePath() -> String? {
+        let script = """
+                    tell application "Xcode"
+                        set activeDocument to document 1 whose name ends with (word -1 of (get name of window 1))
+                        path of activeDocument
+                    end tell
+        """
+        return executeAppleScript(script)
+        
     }
     
     // 获取当前工程路径
