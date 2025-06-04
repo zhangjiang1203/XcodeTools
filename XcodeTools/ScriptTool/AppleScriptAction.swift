@@ -5,16 +5,16 @@
 //  Created by 张江 on 2025/5/30.
 //
 
-import Foundation
 import Cocoa
+import Foundation
 
-struct AppleScriptAction {
+enum AppleScriptAction {
     @discardableResult
     static func executeAppleScript(_ script: String) -> String? {
         var error: NSDictionary?
         if let appleScript = NSAppleScript(source: script) {
             let output = appleScript.executeAndReturnError(&error)
-            if let error = error {
+            if let error {
                 debugPrint("脚本执行失败 error:\(error.description)")
                 return "脚本执行失败 error:\(error.description)"
             } else {
@@ -27,10 +27,10 @@ struct AppleScriptAction {
 }
 
 extension AppleScriptAction {
-    static func showInFinder(){
-        //获取当前文件的路径信息
+    static func showInFinder() {
+        // 获取当前文件的路径信息
         guard let currentFilePath = getCurrentFilePath(), let url = URL(string: currentFilePath) else {
-            //移除最后一个文件路径
+            // 移除最后一个文件路径
             return
         }
         
@@ -39,10 +39,10 @@ extension AppleScriptAction {
             set myPath to "\(filePath)"
             set finderPath to myPath
             set filePath to POSIX file myPath
-            
+        
             tell application "System Events"
                 set theItem to disk item myPath
-                
+        
                 if class of theItem is folder then
                     #这是一个文件夹 直接打开
                     tell application "Finder"
@@ -50,7 +50,7 @@ extension AppleScriptAction {
                         open myPath as POSIX file
                     end tell
                 else if class of theItem is file then
-                    
+        
                     tell application "Finder"
                         activate
                         open finderPath as POSIX file
@@ -68,11 +68,11 @@ extension AppleScriptAction {
     }
     
     /// 打开终端
-    static func openTerminal(_ path: String, order:[String]? = nil){
+    static func openTerminal(_ path: String, order: [String]? = nil) {
         var orders = [String]()
         orders.append("cd \(path.path())")
         
-        if let order = order {
+        if let order {
             orders.append(contentsOf: order)
         }
         /// 拼接命令
@@ -90,7 +90,7 @@ extension AppleScriptAction {
             end tell
         """
         /// 使用那个终端执行命令
-        if isAppInstalled(bundleIdentifier: "com.googlecode.iterm2"){
+        if isAppInstalled(bundleIdentifier: "com.googlecode.iterm2") {
             script = """
                 tell application "System Events"
                     tell application "iTerm"
@@ -107,7 +107,7 @@ extension AppleScriptAction {
                                 end tell
                                 set newWindow to current window
                             end try
-                            
+            
                         end if
                         tell newWindow
                             tell current session
@@ -133,15 +133,15 @@ extension AppleScriptAction {
     
     /// 根据bundleId 判断是否安装某个App
     private static func isAppInstalled(bundleIdentifier: String) -> Bool {
-        if let _ = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleIdentifier){
+        if let _ = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleIdentifier) {
             return true
         }
         return false
     }
-    
 }
 
-//MARK: 具体执行动作
+// MARK: 具体执行动作
+
 extension AppleScriptAction {
     /// pod install
     static func podInstall() {
@@ -167,7 +167,7 @@ extension AppleScriptAction {
             end tell
         """
         if let proPath = executeAppleScript(script), let url = URL(string: proPath) {
-            //移除最后一个文件路径
+            // 移除最后一个文件路径
             return url.deletingLastPathComponent().path()
         }
         return nil
@@ -181,7 +181,17 @@ extension AppleScriptAction {
                     end tell
         """
         return executeAppleScript(script)
-        
+    }
+    
+    static func swiftFormatCode() {
+        let script = """
+            tell application "Xcode"
+                set frontWindow to the first window
+                set myPath to path of document of frontWindow
+                do shell script "cd " & myPath & ";cd ..; /usr/local/bin/swiftformat ."
+            end tell
+        """
+        executeAppleScript(script)
     }
     
     // 获取当前工程路径
@@ -193,7 +203,7 @@ extension AppleScriptAction {
 //                end tell
 //            end tell
 //        """
-//        
+//
 //        let script = """
 //            tell application "Xcode"
 //                try
@@ -203,18 +213,16 @@ extension AppleScriptAction {
 //                    return "没有路径信息"
 //                end try
 //            end tell
-//        
+//
 //                tell active workspace document
 //                    set myPath to path
 //                end tell
 //        """
-//        
-////        let script = """
-////            set answer to the text returned of (display dialog "输入要解析模型的地址" default answer "" buttons {"确认", "取消"} default button 1 with icon note)
-////            """
-//        
+//
+    ////        let script = """
+    ////            set answer to the text returned of (display dialog "输入要解析模型的地址" default answer "" buttons {"确认", "取消"} default button 1 with icon note)
+    ////            """
+//
 //        return executeAppleScript(script)
 //    }
 }
-
-

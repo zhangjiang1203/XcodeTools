@@ -35,6 +35,7 @@ enum ExtensionGlobalNotification: String , CaseIterable{
     case openInFinderNoti = "com.zj.pro.openInFinder"
     case doArchiveNoti = "com.zj.pro.doArchive"
     case cleanDerivedData = "com.zj.pro.cleanDerivedData"
+    case formatSwiftCode = "com.zj.pro.formatSwiftCode"
     
     // 枚举标题， 菜单栏上展示的标题
     var menuTitle: String {
@@ -49,6 +50,8 @@ enum ExtensionGlobalNotification: String , CaseIterable{
             return "Archive with jenkins"
         case .cleanDerivedData:
             return "clean derived data"
+        case .formatSwiftCode:
+            return "format swift code"
         }
     }
     
