@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0514310B8A1006A7BF22092A /* libPods-CustomTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3EEA8B8254949D1B748D08 /* libPods-CustomTools.a */; };
 		C24BCE282B917D7E0030E55C /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BCE272B917D7E0030E55C /* SideBarView.swift */; };
 		C24BCE2A2B917D940030E55C /* DetailContentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BCE292B917D940030E55C /* DetailContentPage.swift */; };
 		C2A0F6C92DEEF7260055E328 /* AppleScriptAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6C82DEEF7260055E328 /* AppleScriptAction.swift */; };
@@ -15,7 +16,6 @@
 		C2A0F6D52DEEF8E70055E328 /* AppleScriptNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6D22DEEF8100055E328 /* AppleScriptNotification.swift */; };
 		C2A0F6D72DEEFDB00055E328 /* AppleScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6D62DEEFDB00055E328 /* AppleScriptManager.swift */; };
 		C2B025AF2DEF1BBA0001A10A /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AACB2A77E13700F456F1 /* Navigator.swift */; };
-		C2BC258A2DEFF43600BEC8E9 /* SwiftFormat in Frameworks */ = {isa = PBXBuildFile; productRef = C2BC25892DEFF43600BEC8E9 /* SwiftFormat */; };
 		DF15AAA12A77E08F00F456F1 /* XcodeToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AAA02A77E08F00F456F1 /* XcodeToolsApp.swift */; };
 		DF15AAA32A77E08F00F456F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AAA22A77E08F00F456F1 /* ContentView.swift */; };
 		DF15AAA52A77E09000F456F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF15AAA42A77E09000F456F1 /* Assets.xcassets */; };
@@ -33,6 +33,7 @@
 		DF15AADC2A77E18200F456F1 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF15AAB72A77E0AA00F456F1 /* XcodeKit.framework */; };
 		DF15AADD2A77E18200F456F1 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DF15AAB72A77E0AA00F456F1 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DF15AADF2A77E18300F456F1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF15AAB52A77E0AA00F456F1 /* Cocoa.framework */; };
+		DFBDE936FA237EE3253DAC93 /* Pods_XcodeTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030192B118983F6EDCD3E694 /* Pods_XcodeTools.framework */; };
 		DFBEF6882AA7560F00694807 /* dependency.py in Resources */ = {isa = PBXBuildFile; fileRef = DFBEF6872AA7560F00694807 /* dependency.py */; };
 		DFC7A6A02AAF373C005B29C7 /* XCodeToolScript.txt in Resources */ = {isa = PBXBuildFile; fileRef = DFC7A69F2AAF373C005B29C7 /* XCodeToolScript.txt */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		030192B118983F6EDCD3E694 /* Pods_XcodeTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XcodeTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A30380EDB9F1D4D9697FD48 /* Pods-XcodeTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XcodeTools.release.xcconfig"; path = "Target Support Files/Pods-XcodeTools/Pods-XcodeTools.release.xcconfig"; sourceTree = "<group>"; };
+		536D99430182B98192A17D35 /* Pods-CustomTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomTools.release.xcconfig"; path = "Target Support Files/Pods-CustomTools/Pods-CustomTools.release.xcconfig"; sourceTree = "<group>"; };
+		5D3EEA8B8254949D1B748D08 /* libPods-CustomTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CustomTools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3402FF16A8AE5D294F69517 /* Pods-CustomTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomTools.debug.xcconfig"; path = "Target Support Files/Pods-CustomTools/Pods-CustomTools.debug.xcconfig"; sourceTree = "<group>"; };
 		C24BCE272B917D7E0030E55C /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		C24BCE292B917D940030E55C /* DetailContentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentPage.swift; sourceTree = "<group>"; };
 		C2A0F6C82DEEF7260055E328 /* AppleScriptAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptAction.swift; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 		DF15AAD22A77E13800F456F1 /* XcodeToolScript.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; path = XcodeToolScript.scpt; sourceTree = "<group>"; };
 		DFBEF6872AA7560F00694807 /* dependency.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = dependency.py; sourceTree = "<group>"; };
 		DFC7A69F2AAF373C005B29C7 /* XCodeToolScript.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XCodeToolScript.txt; sourceTree = "<group>"; };
+		F9F46B6912FFD9A1B33D1994 /* Pods-XcodeTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XcodeTools.debug.xcconfig"; path = "Target Support Files/Pods-XcodeTools/Pods-XcodeTools.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFBDE936FA237EE3253DAC93 /* Pods_XcodeTools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,8 +125,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF15AADF2A77E18300F456F1 /* Cocoa.framework in Frameworks */,
-				C2BC258A2DEFF43600BEC8E9 /* SwiftFormat in Frameworks */,
 				DF15AADC2A77E18200F456F1 /* XcodeKit.framework in Frameworks */,
+				0514310B8A1006A7BF22092A /* libPods-CustomTools.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +160,7 @@
 				DF15AAB92A77E0AB00F456F1 /* CustomTools */,
 				DF15AAB42A77E0AA00F456F1 /* Frameworks */,
 				DF15AA9E2A77E08F00F456F1 /* Products */,
+				FBD3C61F3D574CAA60267B61 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,6 +201,8 @@
 			children = (
 				DF15AAB52A77E0AA00F456F1 /* Cocoa.framework */,
 				DF15AAB72A77E0AA00F456F1 /* XcodeKit.framework */,
+				030192B118983F6EDCD3E694 /* Pods_XcodeTools.framework */,
+				5D3EEA8B8254949D1B748D08 /* libPods-CustomTools.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -240,6 +251,18 @@
 			path = Script;
 			sourceTree = "<group>";
 		};
+		FBD3C61F3D574CAA60267B61 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3402FF16A8AE5D294F69517 /* Pods-CustomTools.debug.xcconfig */,
+				536D99430182B98192A17D35 /* Pods-CustomTools.release.xcconfig */,
+				F9F46B6912FFD9A1B33D1994 /* Pods-XcodeTools.debug.xcconfig */,
+				4A30380EDB9F1D4D9697FD48 /* Pods-XcodeTools.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -247,6 +270,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF15AAAC2A77E09000F456F1 /* Build configuration list for PBXNativeTarget "XcodeTools" */;
 			buildPhases = (
+				86544B5808445A4ABDE9C7F3 /* [CP] Check Pods Manifest.lock */,
 				DF15AA992A77E08F00F456F1 /* Sources */,
 				DF15AA9A2A77E08F00F456F1 /* Frameworks */,
 				DF15AA9B2A77E08F00F456F1 /* Resources */,
@@ -266,6 +290,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF15AAC32A77E0AB00F456F1 /* Build configuration list for PBXNativeTarget "CustomTools" */;
 			buildPhases = (
+				D70C811ED6326C79BA931B92 /* [CP] Check Pods Manifest.lock */,
 				DF15AAAF2A77E0AA00F456F1 /* Sources */,
 				DF15AAB02A77E0AA00F456F1 /* Frameworks */,
 				DF15AAB12A77E0AA00F456F1 /* Resources */,
@@ -307,9 +332,6 @@
 				Base,
 			);
 			mainGroup = DF15AA942A77E08F00F456F1;
-			packageReferences = (
-				C2BC25882DEFF43600BEC8E9 /* XCRemoteSwiftPackageReference "SwiftFormat" */,
-			);
 			productRefGroup = DF15AA9E2A77E08F00F456F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -341,6 +363,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86544B5808445A4ABDE9C7F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XcodeTools-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D70C811ED6326C79BA931B92 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CustomTools-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DF15AA992A77E08F00F456F1 /* Sources */ = {
@@ -501,6 +570,7 @@
 		};
 		DF15AAAD2A77E09000F456F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9F46B6912FFD9A1B33D1994 /* Pods-XcodeTools.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -534,6 +604,7 @@
 		};
 		DF15AAAE2A77E09000F456F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A30380EDB9F1D4D9697FD48 /* Pods-XcodeTools.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -567,6 +638,7 @@
 		};
 		DF15AAC42A77E0AB00F456F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3402FF16A8AE5D294F69517 /* Pods-CustomTools.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CustomTools/CustomTools.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -598,6 +670,7 @@
 		};
 		DF15AAC52A77E0AB00F456F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 536D99430182B98192A17D35 /* Pods-CustomTools.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CustomTools/CustomTools.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -658,25 +731,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C2BC25882DEFF43600BEC8E9 /* XCRemoteSwiftPackageReference "SwiftFormat" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nicklockwood/SwiftFormat";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.56.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C2BC25892DEFF43600BEC8E9 /* SwiftFormat */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C2BC25882DEFF43600BEC8E9 /* XCRemoteSwiftPackageReference "SwiftFormat" */;
-			productName = SwiftFormat;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF15AA952A77E08F00F456F1 /* Project object */;
 }

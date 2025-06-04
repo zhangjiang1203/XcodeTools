@@ -30,14 +30,14 @@ extension AppleScriptAction {
     static func showInFinder() {
         // 获取当前文件的路径信息
         guard let currentFilePath = getCurrentFilePath(), let url = URL(string: currentFilePath) else {
-            // 移除最后一个文件路径
+            debugPrint("当前文件路径不存在")
             return
         }
-        
         let filePath = url.path()
+        let path = url.deletingLastPathComponent().path()
         let script = """
             set myPath to "\(filePath)"
-            set finderPath to myPath
+            set finderPath to "\(path)"
             set filePath to POSIX file myPath
         
             tell application "System Events"
@@ -56,7 +56,6 @@ extension AppleScriptAction {
                         open finderPath as POSIX file
                         #选中指定文件
                         reveal filePath
-                        activate
                     end tell
                 else
                     display dialog "这是其他类型的项目"

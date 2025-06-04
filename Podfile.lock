@@ -1,0 +1,18 @@
+PODS:
+  - SwiftFormat (0.56.2):
+    - SwiftFormat/Core (= 0.56.2)
+  - SwiftFormat/Core (0.56.2)
+
+DEPENDENCIES:
+  - SwiftFormat (= 0.56.2)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - SwiftFormat
+
+SPEC CHECKSUMS:
+  SwiftFormat: 405da0758f0b625a65844847bcf439078284a5c5
+
+PODFILE CHECKSUM: 342ea7ae129baf6e6b7a4859a9dd450b280bd0bd
+
+COCOAPODS: 1.16.2
