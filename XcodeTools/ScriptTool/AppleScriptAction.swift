@@ -182,46 +182,12 @@ extension AppleScriptAction {
         return executeAppleScript(script)
     }
     
-    static func swiftFormatCode() {
+    static func scriptDialogText() -> String? {
         let script = """
-            tell application "Xcode"
-                set frontWindow to the first window
-                set myPath to path of document of frontWindow
-                do shell script "cd " & myPath & ";cd ..; /usr/local/bin/swiftformat ."
-            end tell
+            set answer to the text returned of (display dialog "请用你的 Jenkins 用户名和 API Token 替换" default answer "zhangsan:API Token" buttons {"确认", "取消"} default button 1 with icon note)
+            return answer
         """
-        executeAppleScript(script)
+        
+        return executeAppleScript(script)
     }
-    
-    // 获取当前工程路径
-//    static func getProjectPath() -> String {
-//        let script = """
-//            tell application "Xcode"
-//                tell active workspace document
-//                    set myPath to path
-//                end tell
-//            end tell
-//        """
-//
-//        let script = """
-//            tell application "Xcode"
-//                try
-//                    set docPath to path of document 1
-//                    return docPath
-//                on error
-//                    return "没有路径信息"
-//                end try
-//            end tell
-//
-//                tell active workspace document
-//                    set myPath to path
-//                end tell
-//        """
-//
-    ////        let script = """
-    ////            set answer to the text returned of (display dialog "输入要解析模型的地址" default answer "" buttons {"确认", "取消"} default button 1 with icon note)
-    ////            """
-//
-//        return executeAppleScript(script)
-//    }
 }

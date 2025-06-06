@@ -17,7 +17,10 @@ struct XcodeToolsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            HStack(alignment: .top) {
+                ContentView()
+            }
         }
     }
 }

@@ -11,11 +11,12 @@
 		C24BCE282B917D7E0030E55C /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BCE272B917D7E0030E55C /* SideBarView.swift */; };
 		C24BCE2A2B917D940030E55C /* DetailContentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BCE292B917D940030E55C /* DetailContentPage.swift */; };
 		C2A0F6C92DEEF7260055E328 /* AppleScriptAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6C82DEEF7260055E328 /* AppleScriptAction.swift */; };
-		C2A0F6CB2DEEF75C0055E328 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6CA2DEEF75C0055E328 /* String+Ex.swift */; };
 		C2A0F6D32DEEF8100055E328 /* AppleScriptNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6D22DEEF8100055E328 /* AppleScriptNotification.swift */; };
 		C2A0F6D52DEEF8E70055E328 /* AppleScriptNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6D22DEEF8100055E328 /* AppleScriptNotification.swift */; };
 		C2A0F6D72DEEFDB00055E328 /* AppleScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0F6D62DEEFDB00055E328 /* AppleScriptManager.swift */; };
 		C2B025AF2DEF1BBA0001A10A /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AACB2A77E13700F456F1 /* Navigator.swift */; };
+		C2E6E0962DF08BDB00F112B8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6E0952DF08BDB00F112B8 /* Color+Extension.swift */; };
+		C2E6E0982DF08F0A00F112B8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6E0972DF08F0A00F112B8 /* String+Extension.swift */; };
 		DF15AAA12A77E08F00F456F1 /* XcodeToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AAA02A77E08F00F456F1 /* XcodeToolsApp.swift */; };
 		DF15AAA32A77E08F00F456F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15AAA22A77E08F00F456F1 /* ContentView.swift */; };
 		DF15AAA52A77E09000F456F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF15AAA42A77E09000F456F1 /* Assets.xcassets */; };
@@ -82,9 +83,10 @@
 		C24BCE272B917D7E0030E55C /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		C24BCE292B917D940030E55C /* DetailContentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentPage.swift; sourceTree = "<group>"; };
 		C2A0F6C82DEEF7260055E328 /* AppleScriptAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptAction.swift; sourceTree = "<group>"; };
-		C2A0F6CA2DEEF75C0055E328 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
 		C2A0F6D22DEEF8100055E328 /* AppleScriptNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptNotification.swift; sourceTree = "<group>"; };
 		C2A0F6D62DEEFDB00055E328 /* AppleScriptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptManager.swift; sourceTree = "<group>"; };
+		C2E6E0952DF08BDB00F112B8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		C2E6E0972DF08F0A00F112B8 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		C2EBAAC82DEF0EC000E016AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DF15AA9D2A77E08F00F456F1 /* XcodeTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF15AAA02A77E08F00F456F1 /* XcodeToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeToolsApp.swift; sourceTree = "<group>"; };
@@ -145,12 +147,20 @@
 		C2A0F6C72DEEF7130055E328 /* ScriptTool */ = {
 			isa = PBXGroup;
 			children = (
-				C2A0F6CA2DEEF75C0055E328 /* String+Ex.swift */,
 				C2A0F6C82DEEF7260055E328 /* AppleScriptAction.swift */,
 				C2A0F6D22DEEF8100055E328 /* AppleScriptNotification.swift */,
 				C2A0F6D62DEEFDB00055E328 /* AppleScriptManager.swift */,
 			);
 			path = ScriptTool;
+			sourceTree = "<group>";
+		};
+		C2E6E0942DF08BD500F112B8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C2E6E0972DF08F0A00F112B8 /* String+Extension.swift */,
+				C2E6E0952DF08BDB00F112B8 /* Color+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		DF15AA942A77E08F00F456F1 = {
@@ -176,6 +186,7 @@
 		DF15AA9F2A77E08F00F456F1 /* XcodeTools */ = {
 			isa = PBXGroup;
 			children = (
+				C2E6E0942DF08BD500F112B8 /* Extension */,
 				C2EBAAC82DEF0EC000E016AF /* Info.plist */,
 				C2A0F6C72DEEF7130055E328 /* ScriptTool */,
 				C24BCE2C2B917DA70030E55C /* ContentPageView */,
@@ -259,7 +270,6 @@
 				F9F46B6912FFD9A1B33D1994 /* Pods-XcodeTools.debug.xcconfig */,
 				4A30380EDB9F1D4D9697FD48 /* Pods-XcodeTools.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -420,10 +430,11 @@
 				C24BCE2A2B917D940030E55C /* DetailContentPage.swift in Sources */,
 				C2B025AF2DEF1BBA0001A10A /* Navigator.swift in Sources */,
 				DF15AAA32A77E08F00F456F1 /* ContentView.swift in Sources */,
-				C2A0F6CB2DEEF75C0055E328 /* String+Ex.swift in Sources */,
+				C2E6E0962DF08BDB00F112B8 /* Color+Extension.swift in Sources */,
 				DF15AAA12A77E08F00F456F1 /* XcodeToolsApp.swift in Sources */,
 				C2A0F6D72DEEFDB00055E328 /* AppleScriptManager.swift in Sources */,
 				C2A0F6D32DEEF8100055E328 /* AppleScriptNotification.swift in Sources */,
+				C2E6E0982DF08F0A00F112B8 /* String+Extension.swift in Sources */,
 				C2A0F6C92DEEF7260055E328 /* AppleScriptAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

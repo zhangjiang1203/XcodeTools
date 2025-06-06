@@ -51,12 +51,11 @@ extension AppleScriptManager {
                 AppleScriptAction.podUpdate()
             case .openInFinderNoti:
                 AppleScriptAction.showInFinder()
-            case .doArchiveNoti:
-                debugPrint("开始打包")
-            case .cleanDerivedData:
-                debugPrint("开始清理")
+//            case .doArchiveNoti:
+//                debugPrint("开始打包")
+//            case .cleanDerivedData:
+//                debugPrint("开始清理")
             case .formatSwiftCode:
-                AppleScriptAction.swiftFormatCode()
                 debugPrint("不需要执行命令==\(item.menuTitle)")
             }
         }

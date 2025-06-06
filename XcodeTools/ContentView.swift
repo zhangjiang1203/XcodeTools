@@ -9,14 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var selectTab: TabbarType = .setting
+    
     var body: some View {
         
-        NavigationSplitView {
-            SideBarView()
-        } detail: {
-            DetailContentPage()
+        HStack{
+            SideBarView(selectTab: $selectTab)
+                .frame(width: 60)
+            switch selectTab {
+            case .setting:
+                DetailContentPage()
+                    .frame(minWidth: 700)
+            }
         }
-
+        .frame(minWidth: 900,minHeight: 700)
     }
 }
 
